@@ -35,28 +35,7 @@ XYZT abstracts the information space into four foundational orthogonal dimension
 
 Definition: Defines the macro-environment, applicable domain, or system boundary where the information exists (the "stage").
 
-Boundary Audit (Relativity & Nesting): The distinction between X and Y is relative. The same concept can switch roles at different granularities (e.g., "Finance Dept" is an entity Y in company structure, but context X in "Finance Dept Reimbursement Policy"). Thus, X is typically a hierarchical taxonomy supporting nesting and inheritance ( 
-X
-c
-h
-i
-l
-d
-⊂
-X
-p
-a
-r
-e
-n
-t
-X 
-child
-​
- ⊂X 
-parent
-​
-  ).
+Boundary Audit (Relativity & Nesting): The distinction between X and Y is relative. The same concept can switch roles at different granularities (e.g., "Finance Dept" is an entity Y in company structure, but context X in "Finance Dept Reimbursement Policy"). Thus, X is typically a hierarchical taxonomy supporting nesting and inheritance ($X_{child} \subset X_{parent}$).
   
 Core Function: Provides the highest priority hard isolation to prevent cross-domain logical fallacies.
 
@@ -80,21 +59,8 @@ Core Function: Provides the foundation for fine-grained conditional matching and
 
 Definition: Identifies the position of information on the timeline or the sequence of state transitions.
 
-Boundary Audit (Beyond Absolute Time): T includes not only physical timestamps but also partial orders or state machine sequences (e.g., 
-T
-v
-1
-→
-T
-v
-2
-T 
-v1
-​
- →T 
-v2
-​
-  ) in logical reasoning. T is responsible for recording the effective interval of Z-dimension observations.
+Boundary Audit (Beyond Absolute Time): T includes not only physical timestamps but also partial orders or state machine sequences ($e.g., 
+T_v1 → T_v2$) in logical reasoning. T is responsible for recording the effective interval of Z-dimension observations.
   
 Core Function: Empowers the system with dynamic evolution awareness and Temporal Overriding capabilities.
 
@@ -106,64 +72,13 @@ Due to the heterogeneous data types across dimensions, any information node
 i
 i in the knowledge base is mathematically represented as a Composite Tuple, rather than a single tensor:
 
-K 
-i
-​
- =⟨X 
-i
-​
- ,Y 
-i
-​
- ,Z 
-i
-​
- ,T 
-i
-​
- ⟩
+$K_i = \langle X_i, Y_i, Z_i, T_i \rangle$
  
-Where 
-X
-i
-X 
-i
-​
-  is a set of tags, 
-Y
-i
-Y 
-i
-​
-  is a scalar ID, 
-Z
-i
-Z 
-i
-​
-  is a heterogeneous key-value pair or vector space, and 
-T
-i
-T 
-i
-​
-  is a scalar or interval.
+Where X_i is a set of tags,  Y_i is a scalar ID, Z_i is a heterogeneous key-value pair or vector space, and T_i is a scalar or interval.
   
 ### 4.2 Heterogeneous Similarity Metric
 
-Given a target coordinate Q=⟨X 
-q
-​
- ,Y 
-q
-​
- ,Z 
-q
-​
- ,T 
-q
-​
- ⟩ extracted from query intent, the system adopts a Multi-path Recall & Fusion paradigm:
+Given a target coordinate $Q = \langle X_q, Y_q, Z_q, T_q \rangle$ extracted from query intent, the system adopts a Multi-path Recall & Fusion paradigm:
  
 Exact Matching for Discrete Dimensions (Hard Filtering): Uses Boolean logic or set operations on X and T for precise filtering.
 
@@ -247,7 +162,8 @@ Execution Flow Architecture:
 
 
 
-```
+```mermaid
+
 graph TD
     A[Natural Language Query] --> B(XYZT Coordinate Parser)
     B -->|LLM/Few-shot NER| C{Extracted Intent}
